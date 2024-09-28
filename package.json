@@ -1,0 +1,14 @@
+{
+  "name": "uppgift-6",
+  "version": "1.0.0",
+  "description": "uppercase test",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Nils",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
