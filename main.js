@@ -5,26 +5,45 @@ const button = document.querySelector('button');
 
 button.addEventListener(
     'click',
-    transform
+    () => {
+        const text = input.value;
+        transform(text);
+        input.value = '';
+    }
 );
 
 input.addEventListener(
     'keypress',
-    e => (e.key === 'Enter') ? transform() : null
+    e => {
+        if (e.key === 'Enter')
+        {
+            const text = input.value;
+            transform(text);
+            input.value = '';
+        }
+    }
 );
 
-function transform()
-{
-    const text = input.value;
-
+const transform = text => {
     if (text == 0)
     {
-        console.log('Enter some text first!');
+        console.log('Empty string');
     }
     else
     {
         console.log(text.toUpperCase());
     }
 
-    input.value = '';
-}
+    return new Promise((resolve, reject) => {
+        if (text == 0) 
+        {
+            reject('Empty string');
+            return;
+        }
+        else
+        {
+            resolve(text.toUpperCase());
+            
+        } 
+    });
+};
